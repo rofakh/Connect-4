@@ -7,6 +7,18 @@ BLUE = (0,0,255)
 BLACK = (0,0,0)
 RED = (255,0,0)
 YELLOW = (255,255,0)
-
 ROW_COUNT = 6
 COLUMN_COUNT = 7
+def create_board(): #     6          7
+	board = np.zeros((ROW_COUNT,COLUMN_COUNT))
+	return board
+
+def is_valid_location(board, col):
+	return board[ROW_COUNT-1][col] == 0
+def get_next_open_row(board, col):
+	for r in range(ROW_COUNT):
+		if board[r][col] == 0:
+			return r
+
+def drop_piece(board, row, col, piece):
+	board[row][col] = piece
